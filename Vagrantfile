@@ -1,15 +1,13 @@
 # encoding: utf-8
 # -*- mode: ruby -*-
 
-project_name = 'site'
-
 Vagrant.configure '2' do |config|
 
   config.vm.box = "opscode-ubuntu-12.04_chef-11.4.0"
   config.vm.box_url = "https://opscode-vm-bento.s3.amazonaws.com/vagrant/opscode_ubuntu-12.04_chef-11.4.0.box"
   config.ssh.forward_agent = true
   config.vm.network :forwarded_port, guest: 80, host: 8080
-  config.vm.synced_folder "www" , "/var/www/#{project_name}/", mount_options: ["dmode=777", "fmode=666"]
+  config.vm.synced_folder "www" , "/var/www/", mount_options: ["dmode=777", "fmode=666"]
 
   config.vm.provision :chef_solo do |chef|
     chef.cookbooks_path = ['cookbooks', 'vagrant/cookbooks']
@@ -26,7 +24,7 @@ Vagrant.configure '2' do |config|
     chef.json = {
       apache: {
         default_site_enabled: 'true',
-        docroot_dir: "/var/www/#{project_name}",
+        docroot_dir: "/var/www/public",
         user: 'vagrant',
         group: 'vagrant'
       },
