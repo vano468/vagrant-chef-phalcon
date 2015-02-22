@@ -1,0 +1,10 @@
+# encoding: utf-8
+
+site 'http://community.opscode.com/api/v1'
+
+cookbook 'apt'
+cookbook 'git'
+cookbook 'apache2'
+cookbook 'php'
+cookbook 'database'
+cookbook 'postgresql'
