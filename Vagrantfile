@@ -19,6 +19,7 @@ Vagrant.configure '2' do |config|
     chef.add_recipe 'php::module_pgsql'
     chef.add_recipe 'apache2::mod_php5'
     chef.add_recipe 'apache2::mod_rewrite'
+    chef.add_recipe 'database::postgresql'
     chef.add_recipe 'configure'
     chef.json = {
       apache: {
