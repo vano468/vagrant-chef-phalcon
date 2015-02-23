@@ -16,7 +16,6 @@ Vagrant.configure '2' do |config|
     chef.add_recipe 'apache2'
     chef.add_recipe 'php'
     chef.add_recipe 'postgresql::server'
-    chef.add_recipe 'database::postgresql'
     chef.add_recipe 'php::module_pgsql'
     chef.add_recipe 'apache2::mod_php5'
     chef.add_recipe 'apache2::mod_rewrite'
@@ -32,6 +31,9 @@ Vagrant.configure '2' do |config|
         password: {
           postgres: 'root'
         }
+      },
+      configure: {
+        database: 'test_db'
       }
     }
   end

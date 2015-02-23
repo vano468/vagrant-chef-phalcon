@@ -1,7 +1,7 @@
 # Cookbook Name:: configure
 # Recipe:: default
 
-postgresql_database 'app_db' do
+postgresql_database node['configure']['database'] do
   connection(
     host: '127.0.0.1',
     port: 5432,
