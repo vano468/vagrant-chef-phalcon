@@ -33,7 +33,11 @@ Vagrant.configure '2' do |config|
         }
       },
       configure: {
-        database: 'test_db'
+        database: 'test_db',
+        script_paths: [
+          'www/migrations/v0.initial_structure.sql',
+          'www/migrations/v1.add_some_data.sql'
+        ]
       }
     }
   end
