@@ -4,7 +4,7 @@ use Phalcon\DI\FactoryDefault,
     Phalcon\Mvc\View,
     Phalcon\Mvc\Dispatcher,
     Phalcon\Mvc\Url as UrlResolver,
-    Phalcon\Db\Adapter\Pdo\Mysql as DbAdapter,
+    Phalcon\Db\Adapter\Pdo\Postgresql as DbAdapter,
     Phalcon\Mvc\View\Engine\Volt as VoltEngine,
     Phalcon\Mvc\Model\Metadata\Memory as MetaDataAdapter,
     Phalcon\Session\Adapter\Files as SessionAdapter;
@@ -63,8 +63,7 @@ $di->set('db', function () use ($config) {
         'host' => $config->database->host,
         'username' => $config->database->username,
         'password' => $config->database->password,
-        'dbname' => $config->database->dbname,
-        'charset' => 'utf8'
+        'dbname' => $config->database->dbname
     ));
 });
 

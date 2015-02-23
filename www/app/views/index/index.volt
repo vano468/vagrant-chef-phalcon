@@ -17,7 +17,11 @@
 <div class="container">
 	<div class="jumbotron">
 	    <h1>Sample app</h1>
-	    <p>Vagrant / Chef / Apache / PHP / PostgreSQL / Phalcon</p>
+	    <p>/
+		{% for technology in technologies %}
+			{{ technology.name }} / 
+		{% endfor %}
+		</p>
 	    <p><a href="https://github.com/vano468/vagrant-chef-phalcon" class="btn btn-primary btn-lg" role="button">Github</a></p>
 	</div>
 </div>
